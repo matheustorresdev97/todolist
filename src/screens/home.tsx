@@ -1,6 +1,9 @@
 import { TodoLogo } from "@/assets/todo-logo";
+import { Button } from "@/components/button";
+import { Input } from "@/components/input";
 import { colors } from "@/styles/colors";
 import { fontFamily } from "@/styles/fontFamily";
+import { PlusCircle } from "lucide-react-native";
 import { View, StyleSheet, Text } from "react-native";
 
 
@@ -13,9 +16,12 @@ export default function Home() {
             </View>
 
             <View style={styles.content}>
-                <Text style={styles.title}>
-                    Home Page
-                </Text>
+                <View style={styles.form}>
+                    <Input placeholder="Adicione uma nova tarefa" />
+                    <Button>
+                        <PlusCircle size={16} color={colors.gray[100]} />
+                    </Button>
+                </View>
             </View>
         </View>
     )
@@ -44,5 +50,12 @@ export const styles = StyleSheet.create({
     content: {
         flex: 1,
         paddingHorizontal: 24,
+        marginTop: -28,
+    },
+    form: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 8,
     },
 })
