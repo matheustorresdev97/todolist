@@ -1,10 +1,14 @@
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { PlusCircle } from "lucide-react-native";
 import { TodoLogo } from "@/assets/todo-logo";
+import { ClipBoardIcon } from "@/assets/clipboard-icon";
+
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
+
 import { colors } from "@/styles/colors";
 import { fontFamily } from "@/styles/fontFamily";
-import { PlusCircle } from "lucide-react-native";
-import { View, StyleSheet, Text } from "react-native";
+
 
 
 export default function Home() {
@@ -21,6 +25,32 @@ export default function Home() {
                     <Button>
                         <PlusCircle size={16} color={colors.gray[100]} />
                     </Button>
+                </View>
+
+                <View style={styles.tasks}>
+                    <View style={styles.tasksHeader}>
+                        <View style={styles.createdTasksInfo}>
+                            <Text style={styles.createdTasksInfoText}>Criadas</Text>
+                            <Text style={styles.createdTasksInfoNumber}>0</Text>
+                        </View>
+                        <View style={styles.completedTasksInfo}>
+                            <Text style={styles.completedTasksInfoText}>Concluídas</Text>
+                            <Text style={styles.completedTasksInfoNumber}>0</Text>
+                        </View>
+                    </View>
+                    <ScrollView contentContainerStyle={styles.tasksList}>
+                        <View style={styles.tasksListEmpty}>
+                            <ClipBoardIcon />
+                            <View style={styles.tasksListEmptyContent}>
+                                <Text style={styles.tasksListEmptyTextStrong}>
+                                    Você ainda não tem tarefas cadastradas
+                                </Text>
+                                <Text style={styles.tasksListEmptyText}>
+                                    Crie tarefas e organize seus itens a fazer
+                                </Text>
+                            </View>
+                        </View>
+                    </ScrollView>
                 </View>
             </View>
         </View>
@@ -57,5 +87,85 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         gap: 8,
+        marginBottom: 32,
     },
+    tasks: {
+        flex: 1,
+    },
+    tasksHeader: {
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 20,
+    },
+    createdTasksInfo: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        gap: 8,
+    },
+    createdTasksInfoText: {
+        fontSize: 14,
+        fontFamily: fontFamily.bold,
+        color: colors.blue[400],
+    },
+    createdTasksInfoNumber: {
+        fontSize: 12,
+        fontFamily: fontFamily.bold,
+        color: colors.gray[200],
+        backgroundColor: colors.gray[400],
+        paddingHorizontal: 10,
+        paddingVertical: 2,
+        borderRadius: 9999,
+    },
+    completedTasksInfo: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        gap: 8,
+    },
+    completedTasksInfoText: {
+        fontSize: 14,
+        fontFamily: fontFamily.bold,
+        color: colors.purple[400],
+    },
+    completedTasksInfoNumber: {
+        fontSize: 12,
+        fontFamily: fontFamily.bold,
+        color: colors.gray[200],
+        backgroundColor: colors.gray[400],
+        paddingHorizontal: 10,
+        paddingVertical: 2,
+        borderRadius: 9999,
+    },
+    tasksList: {
+        width: '100%',
+        gap: 8,
+        paddingBottom: 64,
+    },
+    tasksListEmpty: {
+        width: '100%',
+        paddingHorizontal: 20,
+        paddingVertical: 48,
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 16,
+        borderTopWidth: 1,
+        borderColor: colors.gray[400],
+    },
+    tasksListEmptyContent: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    tasksListEmptyText: {
+        fontSize: 14,
+        fontFamily: fontFamily.regular,
+        color: colors.gray[300],
+    },
+    tasksListEmptyTextStrong: {
+        fontSize: 14,
+        fontFamily: fontFamily.bold,
+        color: colors.gray[300],
+    }
 })
