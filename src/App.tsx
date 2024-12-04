@@ -1,9 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native'
 import {
   useFonts,
   Inter_400Regular,
   Inter_700Bold,
 } from '@expo-google-fonts/inter'
+import Home from './screens/home';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -16,7 +17,12 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style="auto" />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      <Home />
     </>
   );
 }
