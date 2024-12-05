@@ -33,6 +33,24 @@ export default function Home() {
         setTaskDescription('')
     }
 
+    function handleToggleTask(taskId: string) {
+        const newTasks = tasks.map(task => {
+            if (task.id === taskId) {
+                return {
+                    ...task,
+                    isCompleted: !task.isCompleted,
+                }
+            }
+            return task
+        })
+        setTasks(newTasks)
+    }
+
+    function handleDeleteTask(taskId: string) {
+        const newTasks = tasks.filter(task => task.id !== taskId)
+        setTasks(newTasks)
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -68,7 +86,11 @@ export default function Home() {
                         data={tasks}
                         keyExtractor={item => item.id}
                         renderItem={({ item }) => (
-                            <Task {...item} onToggle={() => { }} onDelete={() => { }} />
+                            <Task
+                                {...item}
+                                onToggle={handleToggleTask}
+                                onDelete={handleDeleteTask}
+                            />
                         )}
                         contentContainerStyle={styles.tasksList}
                         ListEmptyComponent={
