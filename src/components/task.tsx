@@ -3,10 +3,9 @@ import { fontFamily } from '@/styles/fontFamily'
 import { Check, Trash2 } from 'lucide-react-native'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { Button } from './button'
+import { TaskType } from '@/@types/task'
 
-
-
-export type TaskProps = {
+export type TaskProps = TaskType & {
     id: string
     description: string
     isCompleted: boolean

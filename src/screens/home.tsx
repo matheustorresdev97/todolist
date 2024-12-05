@@ -1,7 +1,9 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { useState } from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native'
 import { PlusCircle } from "lucide-react-native";
 import { TodoLogo } from "@/assets/todo-logo";
 import { ClipBoardIcon } from "@/assets/clipboard-icon";
+import { createId } from '@paralleldrive/cuid2'
 
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
@@ -10,21 +12,41 @@ import { Task } from '@/components/task';
 import { colors } from "@/styles/colors";
 import { fontFamily } from "@/styles/fontFamily";
 
+import { TaskType } from '@/@types/task';
+
 
 
 
 export default function Home() {
+    const [tasks, setTasks] = useState<TaskType[]>([])
+    const [taskDescription, setTaskDescription] = useState('')
+
+    function handleAddTask(description: string) {
+        if (!description.trim()) return
+        const newTask: TaskType = {
+            id: createId(),
+            description: description.trim(),
+            isCompleted: false,
+            createdAt: new Date(),
+        }
+        setTasks(prevState => [newTask, ...prevState])
+        setTaskDescription('')
+    }
+
     return (
         <View style={styles.container}>
-
             <View style={styles.header}>
                 <TodoLogo />
             </View>
 
             <View style={styles.content}>
                 <View style={styles.form}>
-                    <Input placeholder="Adicione uma nova tarefa" />
-                    <Button>
+                    <Input
+                        placeholder="Adicione uma nova tarefa"
+                        value={taskDescription}
+                        onChangeText={setTaskDescription}
+                    />
+                    <Button onPress={() => handleAddTask(taskDescription)}>
                         <PlusCircle size={16} color={colors.gray[100]} />
                     </Button>
                 </View>
@@ -35,63 +57,42 @@ export default function Home() {
                             <Text style={styles.createdTasksInfoText}>Criadas</Text>
                             <Text style={styles.createdTasksInfoNumber}>0</Text>
                         </View>
+
                         <View style={styles.completedTasksInfo}>
                             <Text style={styles.completedTasksInfoText}>Concluídas</Text>
                             <Text style={styles.completedTasksInfoNumber}>0</Text>
                         </View>
                     </View>
-                    <ScrollView contentContainerStyle={styles.tasksList}>
-                        <View style={styles.tasksListEmpty}>
-                            <ClipBoardIcon />
-                            <View style={styles.tasksListEmptyContent}>
-                                <Text style={styles.tasksListEmptyTextStrong}>
-                                    Você ainda não tem tarefas cadastradas
-                                </Text>
-                                <Text style={styles.tasksListEmptyText}>
-                                    Crie tarefas e organize seus itens a fazer
-                                </Text>
-                            </View>
-                        </View>
 
-                        <Task
-                            id="001"
-                            description="Integer urna interdum massa libero auctor neque turpis turpis semper."
-                            isCompleted={false}
-                            onToggle={() => { }}
-                            onDelete={() => { }}
-                        />
-                        <Task
-                            id="001"
-                            description="Integer urna interdum massa libero auctor neque turpis turpis semper."
-                            isCompleted={true}
-                            onToggle={() => { }}
-                            onDelete={() => { }}
-                        />
-                        <Task
-                            id="001"
-                            description="Integer urna interdum massa libero auctor neque turpis turpis semper."
-                            isCompleted={false}
-                            onToggle={() => { }}
-                            onDelete={() => { }}
-                        />
-                        {Array.from({ length: 10 }).map((_, index) => (
-                            <Task
-                                key={Math.random() * 1000}
-                                id="001"
-                                description="Integer urna interdum massa libero auctor neque turpis turpis semper."
-                                isCompleted={false}
-                                onToggle={() => { }}
-                                onDelete={() => { }}
-                            />
-                        ))}
-                    </ScrollView>
+                    <FlatList
+                        data={tasks}
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) => (
+                            <Task {...item} onToggle={() => { }} onDelete={() => { }} />
+                        )}
+                        contentContainerStyle={styles.tasksList}
+                        ListEmptyComponent={
+                            <View style={styles.tasksListEmpty}>
+                                <ClipBoardIcon />
+                                <View style={styles.tasksListEmptyContent}>
+                                    <Text style={styles.tasksListEmptyTextStrong}>
+                                        Você ainda não tem tarefas cadastradas
+                                    </Text>
+                                    <Text style={styles.tasksListEmptyText}>
+                                        Crie tarefas e organize seus itens a fazer
+                                    </Text>
+                                </View>
+                            </View>
+                        }
+                        showsVerticalScrollIndicator={false}
+                    />
                 </View>
             </View>
         </View>
     )
 }
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.gray[600],
@@ -201,5 +202,5 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: fontFamily.bold,
         color: colors.gray[300],
-    }
+    },
 })
