@@ -1,6 +1,6 @@
 # 📱 TODO LIST
 
-ste projeto é uma aplicação de **Todo List** desenvolvida com **Expo Router** e **React Native**, utilizando **TypeScript**.  
+Este projeto é uma aplicação de **Todo List** desenvolvida com **Expo Router** e **React Native**, utilizando **TypeScript**.  
 
 A aplicação permite ao usuário:  
 - Criar tarefas  
