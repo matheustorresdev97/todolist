@@ -51,6 +51,9 @@ export default function Home() {
         setTasks(newTasks)
     }
 
+    const totalCreatedTasks = tasks.length
+    const totalCompletedTasks = tasks.filter(task => task.isCompleted).length
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -73,12 +76,16 @@ export default function Home() {
                     <View style={styles.tasksHeader}>
                         <View style={styles.createdTasksInfo}>
                             <Text style={styles.createdTasksInfoText}>Criadas</Text>
-                            <Text style={styles.createdTasksInfoNumber}>0</Text>
+                            <Text style={styles.createdTasksInfoNumber}>
+                                {totalCreatedTasks}
+                            </Text>
                         </View>
 
                         <View style={styles.completedTasksInfo}>
                             <Text style={styles.completedTasksInfoText}>Concluídas</Text>
-                            <Text style={styles.completedTasksInfoNumber}>0</Text>
+                            <Text style={styles.completedTasksInfoNumber}>
+                                {totalCompletedTasks}
+                            </Text>
                         </View>
                     </View>
 
