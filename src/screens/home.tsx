@@ -5,9 +5,11 @@ import { ClipBoardIcon } from "@/assets/clipboard-icon";
 
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
+import { Task } from '@/components/task';
 
 import { colors } from "@/styles/colors";
 import { fontFamily } from "@/styles/fontFamily";
+
 
 
 
@@ -50,6 +52,38 @@ export default function Home() {
                                 </Text>
                             </View>
                         </View>
+
+                        <Task
+                            id="001"
+                            description="Integer urna interdum massa libero auctor neque turpis turpis semper."
+                            isCompleted={false}
+                            onToggle={() => { }}
+                            onDelete={() => { }}
+                        />
+                        <Task
+                            id="001"
+                            description="Integer urna interdum massa libero auctor neque turpis turpis semper."
+                            isCompleted={true}
+                            onToggle={() => { }}
+                            onDelete={() => { }}
+                        />
+                        <Task
+                            id="001"
+                            description="Integer urna interdum massa libero auctor neque turpis turpis semper."
+                            isCompleted={false}
+                            onToggle={() => { }}
+                            onDelete={() => { }}
+                        />
+                        {Array.from({ length: 10 }).map((_, index) => (
+                            <Task
+                                key={Math.random() * 1000}
+                                id="001"
+                                description="Integer urna interdum massa libero auctor neque turpis turpis semper."
+                                isCompleted={false}
+                                onToggle={() => { }}
+                                onDelete={() => { }}
+                            />
+                        ))}
                     </ScrollView>
                 </View>
             </View>
