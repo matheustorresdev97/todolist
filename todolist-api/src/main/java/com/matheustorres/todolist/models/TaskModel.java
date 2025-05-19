@@ -11,8 +11,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Entity
@@ -24,12 +22,11 @@ public class TaskModel {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @NotBlank(message = "O título é obrigatório")
-    @Size(min = 1, max = 100, message = "A tarefa deve ter entre 1 e 100 caracteres")
+    @Column(nullable = false, length = 100)
     private String description;
 
     @Column(nullable = false)
-    private boolean complete;
+    private boolean  complete;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

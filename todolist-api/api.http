@@ -1,0 +1,8 @@
+### Criar uma nova tarefa
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+    "description": "Implementar autenticação no sistema",
+    "complete": false
+}
