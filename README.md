@@ -100,6 +100,7 @@ interfaces: Definições de tipos TypeScript
 Abaixo estão algumas capturas de tela da aplicação em funcionamento:
 <p align="center"> 
 <img src="./screenshots/screenshot1.png" width="500">
-
 </p>
+<p align="center"> 
 <img src="./screenshots/screenshot2.png" width="500">
+</p>
