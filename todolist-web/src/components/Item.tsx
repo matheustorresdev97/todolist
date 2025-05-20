@@ -1,15 +1,16 @@
 import { Check, Trash } from "lucide-react";
-import { ITask } from "../App";
+import { TaskProps } from "../interfaces/Task";
 
-interface Props {
-  data: ITask;
+
+type Props = {
+  data: TaskProps;
   removeTask: (id: number) => void;
   toggleTaskStatus: ({ id, value }: { id: number; value: boolean }) => void;
 }
 
 export function Item({ data, removeTask, toggleTaskStatus }: Props) {
   function handleTaskToggle() {
-    toggleTaskStatus({ id: data.id, value: !data.isChecked });
+    toggleTaskStatus({ id: data.id, value: !data.complete });
   }
 
   function handleRemove() {
@@ -20,21 +21,21 @@ export function Item({ data, removeTask, toggleTaskStatus }: Props) {
     <div className="flex flex-1 gap-3 items-center justify-between p-4 rounded-lg bg-gray-500 border border-gray-400">
       <div className="flex">
         <label htmlFor="checkbox" className="flex p-[3px] items-center gap-3" onClick={handleTaskToggle}>
-          <input type="checkbox" className="hidden" readOnly checked={data.isChecked} />
+          <input type="checkbox" className="hidden" readOnly checked={data.complete} />
           <span className={`
             rounded-full h-[1.125rem] w-[1.125rem] transition-all duration-200 flex items-center justify-center
-            ${data.isChecked 
+            ${data.complete 
               ? "border-2 border-purple-dark bg-purple-dark hover:border-purple hover:bg-purple" 
               : "border-2 border-blue hover:bg-opacity-20 hover:bg-blue"
             }
           `}>
-            {data.isChecked && <Check size={12} />}
+            {data.complete && <Check size={12} />}
           </span>
           <p className={`
             text-sm leading-[140%] select-none transition-all duration-200
-            ${data.isChecked ? "line-through text-gray-300" : ""}
+            ${data.complete ? "line-through text-gray-300" : ""}
           `}>
-            {data.text}
+            {data.description}
           </p>
         </label>
       </div>
