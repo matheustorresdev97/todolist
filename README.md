@@ -1,4 +1,4 @@
-## TodoList
+## 📝 TodoList
 Uma aplicação completa de lista de tarefas com backend em Java/Spring Boot e frontend em React + TypeScript, utilizando Tailwind CSS para estilização.
 
 ### 🚀 Funcionalidades
@@ -38,7 +38,7 @@ npm ou yarn
 Backend
 
 Clone o repositório
-bashgit clone https://github.com/seu-usuario/todolist.git
+bashgit clone https://github.com/matheustorresdev97/todolist.git
 cd todolist
 
 Compile e execute o projeto Spring Boot
@@ -51,7 +51,7 @@ Navegue até a pasta do frontend
 bashcd frontend
 
 Instale as dependências
-bashnpm install
+bash npm install
 # ou
 yarn
 
@@ -62,7 +62,7 @@ yarn dev
 O frontend estará disponível em http://localhost:5173
 
 ### 🌐 Endpoints da API
-MétodoEndpointDescriçãoGET/tasksRetorna todas as tarefasPOST/tasksCria uma nova tarefaPUT/tasks/{id}Atualiza o status de uma tarefaDELETE/tasks/{id}Remove uma tarefa
+
 Exemplos de Requisições
 Criar uma tarefa
 httpPOST /tasks
