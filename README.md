@@ -95,9 +95,11 @@ O frontend é organizado em componentes reutilizáveis:
 components: Componentes da interface como Button, Input, Item, etc.
 interfaces: Definições de tipos TypeScript
 
-📸 Screenshots
+### 📸 Screenshots
+
 Abaixo estão algumas capturas de tela da aplicação em funcionamento:
 <p align="center"> 
 <img src="./screenshots/screenshot1.png" width="500">
-<img src="./screenshots/screenshot2.png" width="500">
+
 </p>
+<img src="./screenshots/screenshot2.png" width="500">
