@@ -6,3 +6,18 @@ Content-Type: application/json
     "description": "Implementar autenticação no sistema",
     "complete": false
 }
+
+### Listar todas as tarefas
+GET http://localhost:8080/tasks
+
+### Atualizar status de uma tarefa 
+PUT http://localhost:8080/tasks/89f7f613-d224-471b-a7a0-97e4d44f7f63
+Content-Type: application/json
+
+{
+    "complete": false
+}
+
+
+### Excluir uma tarefa
+DELETE http://localhost:8080/tasks/89f7f613-d224-471b-a7a0-97e4d44f7f63
