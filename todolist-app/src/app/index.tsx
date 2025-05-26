@@ -90,7 +90,7 @@ export default function Index() {
 
 
     return (
-        <View className="flex-1 bg-gray600">
+        <View className="flex-1 bg-base-gray600">
             <Header
                 task={description}
                 onChangeText={setDescription}
@@ -99,17 +99,17 @@ export default function Index() {
             <View className="flex-1 mt-14 mx-6">
                 <View className="flex-row items-center justify-between mb-5">
                     <View className="flex-row items-center justify-center">
-                        <Icon name="playlist-plus" size={24} color={colors.blue} />
-                        <Text className="text-blue text-sm font-bold ml-1">Criadas</Text>
-                        <View className="bg-gray400 w-[25px] h-[19px] rounded-full items-center justify-center ml-2">
-                            <Text className="text-gray200 text-xs font-bold">{tasksCreated}</Text>
+                        <Icon name="playlist-plus" size={24} color={colors.brand.blue} />
+                        <Text className="text-brand-blue text-sm font-bold ml-1">Criadas</Text>
+                        <View className="bg-base-gray400 w-[25px] h-[19px] rounded-full items-center justify-center ml-2">
+                            <Text className="text-base-gray200 text-xs font-bold">{tasksCreated}</Text>
                         </View>
                     </View>
                     <View className="flex-row items-center">
-                        <Icon name="playlist-check" size={24} color={colors.purple} />
-                        <Text className="text-purple text-sm font-bold ml-1">Concluídas</Text>
-                        <View className="bg-gray400 w-[25px] h-[19px] rounded-full items-center justify-center ml-2">
-                            <Text className="text-gray200 text-xs font-bold">{completeTasks}</Text>
+                        <Icon name="playlist-check" size={24} color={colors.brand.purple} />
+                        <Text className="text-brand-purple text-sm font-bold ml-1">Concluídas</Text>
+                        <View className="bg-base-gray400 w-[25px] h-[19px] rounded-full items-center justify-center ml-2">
+                            <Text className="text-base-gray200 text-xs font-bold">{completeTasks}</Text>
                         </View>
                     </View>
                 </View>

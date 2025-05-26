@@ -16,7 +16,7 @@ export function Task({
     deleteTask,
 }: TasksProps) {
     return (
-        <View className="w-full h-16 bg-gray500 rounded-lg my-1 px-3 py-5 flex-row items-center justify-between border border-gray400">
+        <View className="w-full h-16 bg-base-gray500 rounded-lg my-1 px-3 py-5 flex-row items-center justify-between border border-base-gray400">
             <TouchableOpacity onPressIn={() => taskDone(String(id))}>
                 <Icon
                     name={
@@ -25,16 +25,16 @@ export function Task({
                             : "checkbox-blank-circle-outline"
                     }
                     size={22}
-                    color={complete ? colors.purple : colors.blue}
+                    color={complete ? colors.brand.purple : colors.brand.blue}
                 />
             </TouchableOpacity>
             <View className="w-4/5 mx-2 h-10 items-center justify-center">
-                <Text className={complete ? `text-sm text-gray300 line-through` : `text-sm text-gray100`}>
+                <Text className={complete ? `text-sm text-base-gray300 line-through font-bold` : `text-sm text-base-gray100`}>
                     {description}
                 </Text>
             </View>
             <TouchableOpacity onPressIn={() => deleteTask(String(id))}>
-                <Icon name="trash-can-outline" size={20} color={colors.gray300} />
+                <Icon name="trash-can-outline" size={20} color={colors.base.gray300} />
             </TouchableOpacity>
         </View>
     );
