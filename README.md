@@ -22,12 +22,22 @@ Uma aplicação completa de lista de tarefas com backend em Spring Boot e fronte
 - Lombok
 - Maven
 
-### Frontend
+### Frontend Web
 - React 18
 - TypeScript
 - Tailwind CSS 4
 - Vite
 - Lucide React (ícones)
+
+### Frontend Mobile
+
+- **React Native 0.79.2**
+- **Expo ~53.0.9**
+- **TypeScript**
+- **NativeWind 4.1.23** (Tailwind CSS para React Native)
+- **Expo Router 5.0.6**
+- **Expo Google Fonts** (Inter)
+- **React Native Vector Icons**
 
 ## 📋 Pré-requisitos
 
@@ -72,6 +82,38 @@ Uma aplicação completa de lista de tarefas com backend em Spring Boot e fronte
    yarn dev
    ```
    O frontend estará disponível em `http://localhost:5173`
+
+### Frontend Mobile
+
+1. **Navegue até a pasta do app mobile**
+   ```bash
+   cd todolist-app
+   ```
+
+2. **Instale as dependências**
+   ```bash
+   npm install
+   # ou
+   yarn
+   ```
+
+3. **Configure o IP da API**
+   
+   No arquivo `src/app/index.tsx`, atualize o IP para o da sua máquina:
+   ```typescript
+   const API_URL = 'http://SEU_IP_LOCAL:8080';
+   ```
+
+4. **Execute o projeto**
+   ```bash
+   npx expo start
+   ```
+   
+   **Opções de execução:**
+   - **Android**: `npx expo start --android`
+   - **iOS**: `npx expo start --ios` 
+   - **Web**: `npx expo start --web`
+
 
 ## 🌐 Endpoints da API
 
@@ -134,6 +176,14 @@ Este projeto está em desenvolvimento ativo. Novas funcionalidades estão sendo 
 ## 👤 Autor
 
 **Matheus Torres**
+
+## 🎯 Como Usar
+
+1. **Inicie o backend** Spring Boot
+2. **Lance a aplicação web** ou **mobile** de sua preferência
+3. **Adicione suas primeiras tarefas**
+4. **Marque como concluídas** conforme progride
+5. **Mantenha-se organizado** e produtivo! 
 
 ## 📄 Licença
 
