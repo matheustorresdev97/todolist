@@ -16,7 +16,7 @@ export function Task({
     deleteTask,
 }: TasksProps) {
     return (
-        <View className="w-full h-16 bg-gray-500 rounded-lg my-1 px-3 py-5 flex-row items-center justify-between border border-gray-400">
+        <View className="w-full h-16 bg-gray500 rounded-lg my-1 px-3 py-5 flex-row items-center justify-between border border-gray400">
             <TouchableOpacity onPressIn={() => taskDone(String(id))}>
                 <Icon
                     name={
@@ -29,7 +29,7 @@ export function Task({
                 />
             </TouchableOpacity>
             <View className="w-4/5 mx-2 h-10 items-center justify-center">
-                <Text className={complete ? `text-sm text-gray-300 line-through` : `text-sm text-gray-100`}>
+                <Text className={complete ? `text-sm text-gray300 line-through` : `text-sm text-gray100`}>
                     {description}
                 </Text>
             </View>
